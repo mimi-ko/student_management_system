@@ -20,4 +20,11 @@
                     <a href="./student_list.php" class="menu-list">Student</a>
                 </div>
             </div>
+
+            <div class="menu">
+                <div onclick="location.replace('./teacher_list.php')" class="menu-item ms-4 my-2">
+                    <i class="bi bi-people"></i>
+                    <a href="./teacher_list.php" class="menu-list">Teacher</a>
+                </div>
+            </div>
 </div>
