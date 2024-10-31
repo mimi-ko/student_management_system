@@ -2,17 +2,23 @@
 <?php require_once('./storage/teacher_crud.php'); ?>
 
 <?php
-
+$message = "";
     if(isset($_GET['delete_id'])){
+        
         $delete_id = $_GET['delete_id'];
-        if(!delete_teacher($mysqli,$delete_id)){
-            echo "Cannot delete Teacher";
+        if(delete_teacher($mysqli,$delete_id)){
+            $message = "Teacher is deleted";
+        }else{
+            $message =  $mysqli ->error;
         }
     }
-
 ?>
 
 <h2>Teachers List</h2>
+<?php if($message !== ''){?>
+    <div class="alert alert-danger"><?= $message; ?></div>
+
+<?php } ?>
 <div class="card">
     <div class="card-header d-flex">
 

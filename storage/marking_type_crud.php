@@ -2,7 +2,7 @@
 <?php 
 
 function add_marking_type($mysqli,$type_name,$min_mark,$max_mark){
-    $sql = "INSERT INTO `marking_type`(`type_name`) VALUES ('$type_name','$min_mark','$max_mark')";
+    $sql = "INSERT INTO `marking_type`(`type_name`,`min_mark`,`max_mark`) VALUES ('$type_name','$min_mark','$max_mark')";
     return $mysqli->query($sql);
 }
 

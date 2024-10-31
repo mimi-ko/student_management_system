@@ -3,7 +3,8 @@
 
 <?php 
 
-    $teacher_name = $teacher_email = $teacher_experience = $teacher_name_err = $teacher_email_err = $teacher_experience_err = $invalid = '';
+    $teacher_name = $teacher_email = $teacher_experience = $teacher_name_err = $teacher_email_err = $teacher_experience_err = '';
+    $invalid = false;
 
     if(isset($_GET['teacher_id'])){
         $teacher_id = $_GET['teacher_id'];
@@ -35,7 +36,7 @@
                     header("location:teacher_list.php");
                     
                 }else{
-                    $invalid = false;
+                    $invalid = true;
                 }
 
             }else{

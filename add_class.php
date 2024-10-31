@@ -31,8 +31,6 @@
                     $invalid = true;
                 }
             }else{ 
-                
-                $invalid = true;
                 if(add_class($mysqli,$class_description,$class_name)){
                  header('location:class_list.php');
                 }else{
@@ -53,6 +51,16 @@
 <div class="card">
     <div class="card-body">
         <form action="" method="Post" style="width:40%;">
+            <?php if ($invalid) { ?>
+                <div class="alert alert-danger">
+                    <?php if (isset($_GET["class_id"])) {
+                        echo "Class can't be update!";
+                    } else {
+                        echo "New class can't be register!";
+                    }
+                    ?>
+                </div>
+            <?php } ?>
             <div class="form-group my-3">
                 <label for="class_name" class="form-label">Class Name</label>
                 <input type="text" name="class_name" id="class_name" class="form-control" value="<?= $class_name; ?>">
@@ -66,7 +74,7 @@
             <?php if(isset($_GET['class_id'])){
                 echo "<button type='submit' name='submit' class='btn btn-success'>Edit Class</button>";
             } else{
-                echo "<button type='submit' name='submit' class='btn btn-primary'>Edit Class</button>";
+                echo "<button type='submit' name='submit' class='btn btn-primary'>Add New Class</button>";
             } ?>
         </form>
     </div>
